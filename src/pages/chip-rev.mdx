@@ -6,10 +6,22 @@ author: "Colcol, Massimo; Dicreto, Eirnan; Ong, Kyle; Salvador, Miguel; Tanchiao
 readingTime: "67 minutes"
 ---
 
-import InfoCard from '../components/InfoCard.astro';
+import '../styles/chiplet.css';
 
-<InfoCard title="What is a buffer over-read?" body="It occurs when a program reads more data than was intended from a buffer." />
+import Intro from '../components/Intro.astro';
+import PhysicsWall from '../components/PhysicsWall.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ChipSim from '../components/ChipSim.jsx';
+import Metrics from '../components/Metrics.astro';
 
-import MyComponent from '../components/MyComponent.jsx';
+# The Chiplet Revolution
 
-<MyComponent client:load />
+<Intro />
+
+<PhysicsWall />
+
+<BeforeAfter />
+
+<ChipSim client:load />
+
+<Metrics />
