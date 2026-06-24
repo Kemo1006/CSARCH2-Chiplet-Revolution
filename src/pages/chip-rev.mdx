@@ -1,12 +1,11 @@
 ---
 layout: ../layouts/ExhibitLayout.astro
 title: "The Chiplet Revolution: How AMD Solved the Cost and Scaling Problem"
-description: "A short description of your topic."
+description: "How AMD's chiplet design overcame the reticle limit and defect cost crisis."
 author: "Colcol, Massimo; Dicreto, Eirnan; Ong, Kyle; Salvador, Miguel; Tanchiao, Manuel"
-readingTime: "10 minutes"
+readingTime: "12 minutes"
 ---
 
-import '../styles/main.css';
 import '../styles/intro.css';
 import '../styles/physics.css';
 import '../styles/before.css';
@@ -23,10 +22,20 @@ import Metrics from '../components/Metrics.astro';
 
 <Intro />
 
+## The Problem: The Power Wall
+
 <PhysicsWall />
+
+## The Solution: Before vs. After
 
 <BeforeAfter />
 
+## Try It Yourself: The Simulator
+
 <ChipSim client:load />
 
+## Metrics Dashboard
+
 <Metrics />
+
+## References
