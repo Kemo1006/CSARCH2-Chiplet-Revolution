@@ -1,3 +1,85 @@
 ---
-// P2 continuation from figma
+import "../styles/before.css";
 ---
+
+<section class="before-after-section">
+    <div class="before-after-grid">
+        <!-- LEFT: BEFORE MONOLITHIC -->
+        <div class="panel">
+            <div class="header">
+                <span class="panel-label">BEFORE: MONOLITHIC</span>
+                <span class="badge badge--risk">High Risk</span>
+            </div>
+
+            <div class="die-visual">
+                <span class="die-x">✕</span>
+                <span class="die-dot"></span>
+            </div>
+
+            <div class="stats">
+                <div class="stat-row">
+                    <span class="stat-key">Silicon Area</span>
+                    <span class="stat-value">800mm²</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-key">Defects</span>
+                    <span class="stat-value stat-value--danger"
+                        >1 Particle</span
+                    >
+                </div>
+                <div class="stat-row">
+                    <span class="stat-key">Net Functional Yield</span>
+                    <span class="stat-value stat-value--danger"
+                        >0% (Scrap)</span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: AFTER CHIPLETS -->
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-label">AFTER: CHIPLETS</span>
+                <span class="badge badge--yield">High Yield</span>
+            </div>
+
+            <div class="chiplet-grid">
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip chip--defective"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-row">
+                    <span class="stat-key">Silicon Area</span>
+                    <span class="stat-value">16 x 50mm²</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-key">Defects</span>
+                    <span class="stat-value stat-value--danger"
+                        >1 Particle</span
+                    >
+                </div>
+                <div class="stat-row">
+                    <span class="stat-key">Net Functional Yield</span>
+                    <span class="stat-value stat-value--success"
+                        >93.75% (15/16 Kept)</span
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
