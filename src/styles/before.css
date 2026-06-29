@@ -112,6 +112,38 @@
     right: 30%;
 }
 
+/* Chiplet grid — 4x4 */
+.chiplet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin: 0 auto;
+    width: 85%;
+}
+
+.chip {
+    aspect-ratio: 1;
+    background-color: #1e4d2b;
+    border: 1px solid #2d7a3a;
+    border-radius: 2px;
+}
+
+.chip--defective {
+    background-color: #2e1a1a;
+    border-color: #5a3333;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chip--defective::after {
+    content: "✕";
+    font-size: 0.5rem;
+    color: #f08080;
+    opacity: 0.9;
+}
+
 /* Stats rows */
 .stats {
     display: flex;
@@ -157,5 +189,13 @@
     .panel:first-child {
         border-right: none;
         border-bottom: 1px solid #2e2e2e;
+    }
+
+    .die-visual {
+        width: 70%;
+    }
+
+    .chiplet-grid {
+        width: 80%;
     }
 }
