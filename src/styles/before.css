@@ -199,3 +199,21 @@
         width: 80%;
     }
 }
+
+/* Explanation text */
+.explanation {
+    margin-top: 1.5rem;
+    padding: 0 0.25rem;
+}
+
+.explanation p {
+    font-family: "Noto Sans Variable", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.explanation p:last-child {
+    margin-bottom: 0;
+}
