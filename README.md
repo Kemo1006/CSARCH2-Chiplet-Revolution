@@ -1,10 +1,5 @@
 # Virtual Exhibit Proposal: The Chiplet Revolution: How AMD Solved the Cost and Scaling Problem
 
-## GitHub Repository Link
-**https://github.com/Kemo1006/CSARCH2**
-
----
-
 ## Group 8 Members
 1. Colcol, Massimo
 2. Dicreto, Eirnan  
@@ -12,10 +7,72 @@
 4. Salvador, Miguel 
 5. Tanchiao, Manuel
 
+## Mid-Milestone Development Update
+### Deployment Link
+**https://csarch2-virtual-exhibit-ten.vercel.app/**
+
+---
+
+### Development Progress
+#### What Has Been Done
+| Component | Member | Status |
+|-----------|--------|--------|
+| `PhysicsWall.astro` + `physics.css` | Massimo  | Done |
+| `BeforeAfter.astro` + `before.css` | Kyle | Done |
+| `ChipSim.jsx` + `interactive.css` | Miguel, Eirnan | In Progress |
+| `Metrics.astro` + `metrics.css` | Manuel | In Progress |
+| Deployment (Vercel) | Kyle | Done |
+
+---
+
+#### Aha Moments & Things Learned
+**Colcol, Massimo:**
+> [Your aha moment or thing you learned here]
+
+**Dicreto, Eirnan:**
+> [Your aha moment or thing you learned here]
+
+**Ong, Kyle:**
+> [Your aha moment or thing you learned here]
+
+**Salvador, Miguel:**
+> [Your aha moment or thing you learned here]
+
+**Tanchiao, Manuel:**
+> [Your aha moment or thing you learned here]
+
+---
+
+#### Challenges Faced
+**Colcol, Massimo:**
+> [Challenge you encountered here]
+
+**Dicreto, Eirnan:**
+> [Challenge you encountered here]
+
+**Ong, Kyle:**
+> [Challenge you encountered here]
+
+**Salvador, Miguel:**
+> [Challenge you encountered here]
+
+**Tanchiao, Manuel:**
+> [Challenge you encountered here]
+
+---
+
+#### Things To Be Done for Final Submission
+- [ ] Complete remaining component content (written exhibit text)
+- [ ] Refine `ChipSim.jsx` interactive simulator
+- [ ] Mobile responsiveness testing and cleaning of CSS
+
+---
+
+#### Disclosure on Use of AI / LLM
+here if any
 ---
 
 ## REVISIONS
-
 The following changes have been made from the original proposal:
 
 | Section | Original (Multi-core) | Revised (Chiplet) |
@@ -30,7 +87,6 @@ The following changes have been made from the original proposal:
 ---
 
 ## Group's Topic Theme
-
 By 2015, the semiconductor industry faced a serious physical and economic barrier. Processor manufacturers had traditionally improved performance by making chips larger, adding more transistors to a single "monolithic" die. However, this approach hit two hard limits: the **reticle limit** (the maximum die size a machine can print, roughly 800mm²) and the **defect problem** (a single tiny imperfection on a large, expensive die would destroy the entire chip). With high-end server processors costing tens of thousands of dollars each, the industry's traditional scaling method was becoming financially unsustainable.
 
 AMD solved this problem in 2017 with the introduction of the **Zen architecture** and its revolutionary **chiplet design**. Instead of building one massive processor die, AMD created smaller, cheaper "chiplets", individual pieces of silicon that perform specific functions and connected them on a single package using high-speed interconnects. This approach meant that if one chiplet had a defect, only that small chiplet was wasted, not the entire processor. Manufacturing yields improved dramatically, and AMD could build processors with more cores than previously possible.
@@ -44,9 +100,7 @@ This is a classic **"problem-solving story" for Section S03** because AMD faced 
 ---
 
 ## Group's Tech Stack Plan
-
 ### Proposed Interactive Element
-
 **Name:** Monolithic vs. Chiplet Cost Simulator
 
 **What it does:**  
@@ -69,13 +123,11 @@ Users discover that making a large monolithic die results in high cost and low y
 ---
 
 ### Mobile-Responsive Layout
-
 ![Mobile layout sketch](src/assets/mobile.png)
 
 ---
 
 ### Tentative Style Guide Snapshot
-
 ![Desktop layout sketch](src/assets/Desk%201.png)
 ![Desktop layout sketch](src/assets/Desk%202.png)
 ![Desktop layout sketch](src/assets/Desk%203.png)
