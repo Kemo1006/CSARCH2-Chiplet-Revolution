@@ -1,3 +1,85 @@
 ---
 // P4 from figma
+import "../styles/metrics.css";
+
+const kpis = [
+    {
+        label: "YIELD_IMPROVEMENT_RATE",
+        value: "+82%",
+        caption: "VS MONOLITHIC BASELINE",
+    },
+    {
+        label: "DIE_COST_REDUCTION",
+        value: "-41%",
+        caption: "EST. PER 8-CORE COMPLEX",
+    },
+    {
+        label: "SCALABILITY_FACTOR",
+        value: "64+",
+        caption: "CORES PER SOCKET ACHIEVED",
+    },
+];
+
+const dieBlocks = [
+    { id: "CCX_0", variant: "" },
+    { id: "CCX_1", variant: "" },
+    { id: "IOD_0", variant: "io" },
+    { id: "CCX_2", variant: "" },
+];
 ---
+
+<section class="metrics-section" aria-labelledby="metrics-title">
+    <div class="metrics-eyebrow-row">
+        <svg
+            class="metrics-icon"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <rect x="1" y="9" width="3" height="6" />
+            <rect x="6.5" y="5" width="3" height="10" />
+            <rect x="12" y="1" width="3" height="14" />
+        </svg>
+        <h2 id="metrics-title" class="metrics-title">Impact Metrics</h2>
+    </div>
+
+    <div class="metrics-kpi-row">
+        {
+            kpis.map((k) => (
+                <div class="kpi-card">
+                    <span class="kpi-label">{k.label}</span>
+                    <span class="kpi-value">{k.value}</span>
+                    <span class="kpi-caption">{k.caption}</span>
+                </div>
+            ))
+        }
+    </div>
+
+    <div class="revolution-card">
+        <div class="revolution-copy">
+            <span class="revolution-badge">PHASE 04_EXECUTE</span>
+
+            <h3 class="revolution-heading">The Revolution</h3>
+
+            <p class="revolution-text">
+                The monolithic era fractured under its own weight. AMD's
+                pivot to chiplet architecture didn't just solve a scaling
+                problem; it redefined semiconductor economics. Yields
+                skyrocketed. The silicon didn't stop; it just learned how to
+                work in teams.
+            </p>
+        </div>
+
+        <div class="revolution-visual">
+            <div class="die-package">
+                {
+                    dieBlocks.map((d) => (
+                        <div class={`die-block ${d.variant === "io" ? "die-block--io" : ""}`}>
+                            {d.id}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
