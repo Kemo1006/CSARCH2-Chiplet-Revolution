@@ -1,5 +1,3 @@
-/*  PhysicsWall.astro css */
-
 .physics-wall-section {
     --physics-bg: #05070a;
     --physics-panel: #101010;
@@ -7,7 +5,6 @@
     --physics-line: rgba(255, 176, 171, 0.6);
     --physics-pink: #ffaaa5;
     --physics-muted: #b6c3b2;
-    --physics-dim: #5f7461;
     --physics-green: #39ff6a;
 
     width: 100%;
@@ -29,7 +26,13 @@
     box-sizing: border-box;
 }
 
-/* Main Card */
+.physics-wall-layout {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
 .physics-wall-card {
     position: relative;
     width: 100%;
@@ -69,7 +72,6 @@
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Header */
 .physics-wall-card-header {
     position: relative;
     z-index: 1;
@@ -88,12 +90,11 @@
     text-shadow: 0 0 18px rgba(255, 170, 165, 0.12);
 }
 
-/* Content Grid */
 .physics-wall-content {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(220px, 0.8fr);
+    grid-template-columns: minmax(0, 0.95fr) minmax(220px, 0.8fr);
     gap: 1.5rem;
     align-items: center;
     width: 100%;
@@ -103,7 +104,7 @@
     padding-top: 2.1rem;
 }
 
-/* Text Block */
+/* Text */
 .physics-wall-copy {
     max-width: 100%;
     min-width: 0;
@@ -148,7 +149,7 @@
     margin-bottom: 0;
 }
 
-/* Monitor Visual */
+/* Monitor visual */
 .physics-wall-monitor {
     width: 100%;
     max-width: 300px;
@@ -227,23 +228,6 @@
     color: var(--physics-pink);
 }
 
-/* Tablet */
-@media (max-width: 900px) {
-    .physics-wall-section {
-        padding: 3rem 1rem;
-    }
-
-    .physics-wall-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .physics-wall-monitor {
-        margin: 0;
-        width: 100%;
-        max-width: 100%;
-    }
-}
 
 /* Mobile */
 @media (max-width: 560px) {
@@ -273,7 +257,7 @@
     }
 }
 
-/* Container Query (narrow MDX) */
+/* Container */
 @container (max-width: 650px) {
     .physics-wall-section {
         padding: 2rem 0.75rem;
