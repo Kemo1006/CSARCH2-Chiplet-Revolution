@@ -96,24 +96,6 @@
     text-transform: uppercase;
 }
 
-/* Explanation */
-.metrics-explanation {
-    margin-top: 1.5rem;
-    padding: 0 0.25rem;
-}
-
-.metrics-explanation p {
-    margin-bottom: 1rem;
-    color: var(--metrics-body);
-    font-family: "Noto Sans Variable", sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-.metrics-explanation p:last-child {
-    margin-bottom: 0;
-}
-
 /* Revolution panel */
 .revolution-card {
     display: grid;
@@ -285,4 +267,3 @@
         grid-template-columns: 1fr;
     }
 }
-
