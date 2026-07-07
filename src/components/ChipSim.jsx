@@ -135,6 +135,26 @@ export default function ChipSim() {
           </div>
         </div>
       </div>
+        <div class="explanation">
+          <p>
+            This interactive simulator demonstrates how processor architecture
+            influences manufacturing yield. Switch between a monolithic and a
+            chiplet design, then adjust the target core count and manufacturing
+            defect density to observe how die size affects yield, the estimated
+            number of usable chips produced per 300 mm silicon wafer, and the
+            overall manufacturing grade.
+          </p>
+
+          <p>
+            The wafer visualization provides a conceptual representation of the
+            selected architecture, while the randomly generated defect markers
+            illustrate how manufacturing defects become more significant as die
+            size increases. Experiment with different configurations to compare
+            how chiplet architectures maintain higher yields than monolithic
+            designs under the same manufacturing conditions.
+          </p>
+        </div>
     </div>
+
   );
 }
