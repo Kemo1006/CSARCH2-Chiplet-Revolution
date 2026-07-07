@@ -19,57 +19,66 @@
 |-----------|--------|--------|
 | `PhysicsWall.astro` + `physics.css` | Massimo  | Done |
 | `BeforeAfter.astro` + `before.css` | Kyle | Done |
-| `ChipSim.jsx` + `interactive.css` | Miguel, Eirnan | In Progress |
-| `Metrics.astro` + `metrics.css` | Manuel | In Progress |
+| `ChipSim.jsx` + `interactive.css` | Miguel, Eirnan | Done |
+| `Metrics.astro` + `metrics.css` | Manuel | Done |
 | Deployment (Vercel) | Kyle | Done |
 
 ---
 
-#### Aha Moments & Things Learned
+#### Aha Moments or Things Learned
 **Colcol, Massimo:**
-> [Your aha moment or thing you learned here]
+> While I was trying to learn about the physics wall, one thing I learned is that making one huge chip is very risky because one tiny defect or particle can ruin the entire thing. This means that the bigger the chip is, the higher the risk of failure you can have. Chiplets help solve the problem by breaking one huge chip into smaller parts, since you can only get one chiplet that is defective to the whole chip; other chiplets can still be used, and it can still work. Which is also one of my aha moments that having bigger chips doesn't mean that it's always better.
 
 **Dicreto, Eirnan:**
-> [Your aha moment or thing you learned here]
+> Successfully bridging the gap between the theory of the topic and connecting it to the front-end design. Understanding the math and implementing the code to show its visual representation, I gained a deeper understanding of how Astro works and how it handles components of React. 
 
 **Ong, Kyle:**
-> [Your aha moment or thing you learned here]
+> I learned what `.astro` files and `.mdx` files are and how similar they are to HTML. Astro components feel like writing standard HTML with the added ability to import and use other components, while MDX lets me write Markdown content with interactive React components embedded inside. It made building the exhibit feel more intuitive since I was already familiar with HTML.
 
 **Salvador, Miguel:**
-> [Your aha moment or thing you learned here]
+> Developing the interactive simulator helped me better understand how semiconductor manufacturing concepts can be translated into an educational tool. I learned how React's state management and dynamic rendering can be used to update calculations and visualizations in real time, making abstract concepts like manufacturing yield and defect density easier to explore and understand.
 
 **Tanchiao, Manuel:**
-> [Your aha moment or thing you learned here]
+> Developing this project widened my perspective on AMD and the semiconductor industry as a whole, but more importantly, the soft skills, like learning how to work with others despite my own shortcomings, mastering accountability even when your personal life is falling apart, etc.
 
 ---
 
 #### Challenges Faced
 **Colcol, Massimo:**
-> [Challenge you encountered here]
+> The challenges I faced were that I tried to do an exact copy of our Figma work, but when I tested it on our website, it didn't fit, which made it hard to edit stuff, especially for the css in, which took me a while to figure out how to fit our Figma into a narrowed version of the physics wall. Another challenge was that I had to remove some parts of our Figma from the website, such as the sidebar design, which I had to trace and remove from the code to have a cleaner version of our files.
 
 **Dicreto, Eirnan:**
-> [Challenge you encountered here]
+> Figma-to-code translation was difficult due to manually doing each part of the design. Certain elements were harder to implement in code, and some were modified instead. There were errors on my end regarding running the website due to packages, which led to multiple errors throughout my progress. Resolved it by doing a clean reinstallation
 
 **Ong, Kyle:**
-> [Challenge you encountered here]
+> The challenges I encountered were mostly CSS-related. I had to make sure each section matched the overall dark theme of the museum template while still copying the specific layouts from our Figma drafts. It was tricky getting the colors, spacing, and fonts to look exactly like the design, especially since the museum template had its own global styles that kept overriding my custom CSS. I also had to figure out how to properly scope my styles using class prefixes like `.before-after-section,` so they wouldn't leak into other components or break the existing layout.
 
 **Salvador, Miguel:**
-> [Challenge you encountered here]
+> The main challenge was designing a simulator that was both educational and interactive. I needed to simplify semiconductor yield calculations into a model that users could easily understand while ensuring the React interface remained responsive and the visualizations updated smoothly.
 
 **Tanchiao, Manuel:**
-> [Challenge you encountered here]
+> The challenges I faced were more personal than technical. I struggled with personal issues, which caused me to become unresponsive to the group for a period of time despite repeated attempts to contact me. This led to conflict and panic within our group as the deadline was approaching, and I take responsibility for my shortcomings fully.
 
 ---
 
 #### Things To Be Done for Final Submission
 - [ ] Complete remaining component content (written exhibit text)
-- [ ] Refine `ChipSim.jsx` interactive simulator
 - [ ] Mobile responsiveness testing and cleaning of CSS
 
 ---
 
 #### Disclosure on Use of AI / LLM
-here if any
+This project was developed with the assistance of AI tools (ChatGPT) in the following ways:
+
+- **Frontend Development:** Used as an assistive tool during the development of the frontend components — generating and refining HTML/CSS layouts, React/Astro component structures, styling suggestions, and UI improvements.
+
+- **Layout & Responsiveness:** Used to properly layout the Physics Wall container so it fit correctly on the website, fixing issues where it was narrowed down to a smaller size. Also used for correct sizing to ensure better compatibility for mobile users.
+
+- **Metrics Section:** Used as an assistive tool for enhancing the development of the metrics section and its explanation.
+
+- **Interactive Element Logic:** Assisted in the creation of certain elements or designs that were difficult to implement in code. Also used to thoroughly explain the theory behind chiplets and help with the backend math of the interactive element (yield calculations, cost comparisons, etc.).
+
+All content and code have been reviewed, verified, and adapted by the group members.
 ---
 
 ## REVISIONS
@@ -94,8 +103,15 @@ AMD solved this problem in 2017 with the introduction of the **Zen architecture*
 This is a classic **"problem-solving story" for Section S03** because AMD faced a seemingly dead-end problem, how to continue scaling processor performance without bankrupting themselves on manufacturing costs, and solved it through an innovative architectural shift. The chiplet revolution transformed AMD from an underdog to an industry leader, and today, even Intel has adopted chiplet-based designs.
 
 ### Sources
-1. The Register. (2024). *AMD credits ditching monolithic DC chips for Epyc GHG cuts*. https://www.theregister.com/2024/04/23/amd_chiplets_ghg/
-2. Guru3D. (2019). *Tech preview: AMD Ryzen 3000 - 7nm Zen 2*. https://www.guru3d.com/review/tech-preview-amd-ryzen-with-ryzen-3950x/page-3/
+1. Guru3D. (2019). *Tech preview: AMD Ryzen 3000 - 7nm Zen 2 (Page 3)*. https://www.guru3d.com/review/tech-preview-amd-ryzen-with-ryzen-3950x/page-3/
+
+2. The Register. (2024). *AMD credits ditching monolithic DC chips for Epyc GHG cuts*. https://www.theregister.com/2024/04/23/amd_chiplets_ghg/
+
+3. TokenRing AI. (2026). *The Chiplet Revolution: How Heterogeneous Integration is Scaling AI Beyond Monolithic Limits*. Wedbush Investor. https://investor.wedbush.com/wedbush/article/tokenring-2026-1-2-the-chiplet-revolution-how-heterogeneous-integration-is-scaling-ai-beyond-monolithic-limits
+
+4. Broekhuijsen, N. (2021). *AMD Patents Chiplet Design To Build Colossal GPUs*. Tom's Hardware. https://www.tomshardware.com/news/amd-gpu-chiplet-patent
+
+5. OC3D. (2018). *AMD Reveals Transformative "Chiplet" Design for Zen 2 EPYC Processors*. Overclock3D. https://overclock3d.net/news/cpu_mainboard/amd-reveals-transformative-chiplet-design-for-zen-2-epyc-processors/
 
 ---
 
