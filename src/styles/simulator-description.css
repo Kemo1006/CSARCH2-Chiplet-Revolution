@@ -1,0 +1,16 @@
+/* SimulatorDescription.astro css*/
+.simulator-description-section {
+    margin: 2rem 0;
+}
+
+.simulator-description-section .explanation {
+    max-width: 900px;
+    margin: 2rem auto;
+    color: #cfcfcf;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.simulator-description-section .explanation p {
+    margin-bottom: 1.25rem;
+}
