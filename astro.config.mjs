@@ -5,8 +5,6 @@ import icon from 'astro-icon';
 
 export default defineConfig({
   integrations: [mdx(), react(), icon()],
-  site: process.env.VERCEL 
-    ? 'https://csarch2-virtual-exhibit-ten.vercel.app'
-    : 'https://jrgo7.github.io',
-  base: process.env.VERCEL ? '/' : 'virtual-exhibit-template',
+  site: 'https://jrgo7.github.io',
+  base: 'CSARCH2-Chiplet-Revolution',
 });
