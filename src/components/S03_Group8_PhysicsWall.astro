@@ -9,7 +9,7 @@
 
         <div class="physics-wall-content">
             <!-- LEFT: EXPLANATION TEXT -->
-            <article class="physics-wall-copy">
+            <div class="physics-wall-copy">
                 <span class="physics-wall-alert">CRITICAL LIMIT REACHED</span>
 
                 <h3 class="physics-wall-topic">
@@ -30,33 +30,51 @@
                     catastrophic. When your entire chip relies on one massive
                     piece of silicon, one defect destroys the entire unit,
                     destroying yield rates and rendering the manufacturing
-                    process unprofitable.
+                    process unprofitable. On advanced nodes, public estimates
+                    place a 300mm wafer at about $17,000; once yield loss and
+                    packaging value are considered, a failed near-reticle-class
+                    chip can mean $10,000+ in wasted product value.
                 </p>
-            </article>
+
+                <p class="physics-wall-transition">
+                    This is the wall chiplets were built to climb: instead of
+                    risking one giant die, the next section shows how AMD split
+                    the design into smaller, higher-yielding pieces.
+                </p>
+            </div>
 
             <!-- RIGHT: MONOLITHIC FAILURE VISUAL -->
-            <figure class="physics-wall-monitor">
+            <div class="physics-wall-monitor">
                 <div class="physics-wall-monitor-header">
                     <span class="physics-wall-monitor-code">
-                        SIN: MONOLITHIC_FAILURE
+                        SIM: MONOLITHIC_FAILURE
                     </span>
                     <span class="physics-wall-monitor-status">
                         STATUS: CRITICAL
                     </span>
                 </div>
 
-                <div class="physics-wall-die">
-                    <span class="physics-wall-defect-dot"></span>
-                    <span class="physics-wall-defect-text">DEFECT</span>
+                <div class="physics-wall-reticle">
+                    <span class="physics-wall-reticle-label">
+                        800mm² RETICLE LIMIT
+                    </span>
+
+                    <div class="physics-wall-die">
+                        <span class="physics-wall-defect-dot"></span>
+                        <span class="physics-wall-defect-text">DEFECT</span>
+                    </div>
                 </div>
 
-                <figcaption class="physics-wall-monitor-footer">
+                <div class="physics-wall-monitor-footer">
                     <span class="physics-wall-yield">YIELD: 0%</span>
+                    <span class="physics-wall-cost-note">
+                        EST. LOSS: $10,000+
+                    </span>
                     <span class="physics-wall-failure-note">
                         1 PARTICLE = 1 DEAD DIE
                     </span>
-                </figcaption>
-            </figure>
+                </div>
+            </div>
         </div>
     </div>
 </section>
