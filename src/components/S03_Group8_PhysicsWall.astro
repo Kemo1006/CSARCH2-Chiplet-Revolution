@@ -1,3 +1,7 @@
+---
+import "../styles/S03_Group8_physics.css";
+---
+
 <section class="physics-wall-section" aria-labelledby="physics-wall-title">
     <!-- MAIN: THE PHYSICS WALL CARD -->
     <div class="physics-wall-card">
@@ -30,35 +34,39 @@
                     catastrophic. When your entire chip relies on one massive
                     piece of silicon, one defect destroys the entire unit,
                     destroying yield rates and rendering the manufacturing
-                    process unprofitable.
+                    process unprofitable. On advanced nodes, public estimates
+                    place a 300mm wafer at about $17,000; once yield loss and
+                    packaging value are considered, a failed near-reticle-class
+                    chip can mean $10,000+ in wasted product value.
                 </p>
 
                 <p class="physics-wall-description">
-                    The 800mm² ceiling comes from the projection optics in ASML's
-                    lithography systems. The lens can only expose a fixed field size
-                    onto the wafer in a single pass — roughly 26 × 33 mm. Any die
-                    that exceeds this reticle area cannot be printed without
-                    stitching multiple exposures, a process so costly and
-                    error-prone that it is impractical for volume production.
+                    The 800mm² ceiling comes from the projection optics in
+                    ASML's lithography systems. The lens can only expose a fixed
+                    field size onto the wafer in a single pass, roughly 26 ×
+                    33mm. Any die that exceeds this reticle area cannot be
+                    printed without stitching multiple exposures, a process so
+                    costly and error-prone that it is impractical for volume
+                    production.
                 </p>
 
                 <p class="physics-wall-description">
-                    The financial stakes are enormous. A single 300 mm wafer
+                    The financial stakes are enormous. A single 300mm wafer
                     costs approximately $8,000 to process. A monolithic die
-                    approaching the reticle limit yields so few good parts
-                    that each scrapped die wastes tens of thousands of dollars
-                    in silicon, fab time, and lost revenue.
+                    approaching the reticle limit yields so few good parts that
+                    each scrapped die wastes tens of thousands of dollars in
+                    silicon, fab time, and lost revenue.
                 </p>
 
                 <cite class="physics-wall-cite">
                     Sources: ASML lithography field-size specifications;
-                    industry 300 mm wafer cost estimates (2019–2023).
+                    industry 300mm wafer cost estimates (2019–2023).
                 </cite>
 
-                <p class="physics-wall-bridge">
+                <p class="physics-wall-transition">
                     These constraints drove AMD to abandon the monolithic
-                    approach entirely — the solution was to stop building
-                    one large die and start composing many small ones.
+                    approach entirely, the solution was to stop building one
+                    large die and start composing many small ones.
                 </p>
             </article>
 
@@ -73,14 +81,23 @@
                     </span>
                 </div>
 
-                <div class="physics-wall-die">
-                    <span class="physics-wall-reticle-label">800mm² RETICLE LIMIT</span>
-                    <span class="physics-wall-defect-dot"></span>
-                    <span class="physics-wall-defect-text">DEFECT</span>
+                <!-- Reticle wrapper: outer = 800mm² limit, inner = actual die -->
+                <div class="physics-wall-reticle">
+                    <span class="physics-wall-reticle-label"
+                        >800mm² RETICLE LIMIT</span
+                    >
+
+                    <div class="physics-wall-die">
+                        <span class="physics-wall-defect-dot"></span>
+                        <span class="physics-wall-defect-text">DEFECT</span>
+                    </div>
                 </div>
 
                 <figcaption class="physics-wall-monitor-footer">
                     <span class="physics-wall-yield">YIELD: 0%</span>
+                    <span class="physics-wall-cost-note"
+                        >$8,000 WAFER → $0 RETURNED</span
+                    >
                     <span class="physics-wall-failure-note">
                         1 PARTICLE = 1 DEAD DIE
                     </span>
