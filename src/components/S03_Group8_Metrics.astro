@@ -20,10 +20,10 @@ const kpis = [
 ];
 
 const dieBlocks = [
-    { id: "CCX_0", variant: "" },
-    { id: "CCX_1", variant: "" },
+    { id: "CCX_0", variant: "ccx" },
+    { id: "CCX_1", variant: "ccx" },
     { id: "IOD_0", variant: "io" },
-    { id: "CCX_2", variant: "" },
+    { id: "CCX_2", variant: "ccx" },
 ];
 ---
 
@@ -73,7 +73,7 @@ const dieBlocks = [
             <div class="die-package">
                 {
                     dieBlocks.map((d) => (
-                        <div class={`die-block ${d.variant === "io" ? "die-block--io" : ""}`}>
+                        <div class={`die-block die-block--${d.variant}`}>
                             {d.id}
                         </div>
                     ))

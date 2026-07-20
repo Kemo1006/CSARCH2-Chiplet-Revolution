@@ -200,7 +200,8 @@ export default function ChipSim() {
           <p>
             The model uses the <strong>Negative Binomial yield formula</strong>:{' '}
             <code>Y = (1 + (D₀ × A) / α)^(−α)</code>, where D₀ is defect density,
-            A is die area ({AREA_PER_CORE_MM2}mm² per core), and α = {YIELD_ALPHA} (clustering factor).
+            A is total die area (core count × {AREA_PER_CORE_MM2}mm² per core),
+            and α = {YIELD_ALPHA} (clustering factor).
             Wafer cost is fixed at {formatCurrency(WAFER_COST)} and wasted silicon capital
             is <strong>wastedCost = waferCost × (1 − yield)</strong>.
           </p>
