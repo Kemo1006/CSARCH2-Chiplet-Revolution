@@ -32,13 +32,41 @@
                     destroying yield rates and rendering the manufacturing
                     process unprofitable.
                 </p>
+
+                <p class="physics-wall-description">
+                    The 800mm² ceiling comes from the projection optics in ASML's
+                    lithography systems. The lens can only expose a fixed field size
+                    onto the wafer in a single pass — roughly 26 × 33 mm. Any die
+                    that exceeds this reticle area cannot be printed without
+                    stitching multiple exposures, a process so costly and
+                    error-prone that it is impractical for volume production.
+                </p>
+
+                <p class="physics-wall-description">
+                    The financial stakes are enormous. A single 300 mm wafer
+                    costs approximately $8,000 to process. A monolithic die
+                    approaching the reticle limit yields so few good parts
+                    that each scrapped die wastes tens of thousands of dollars
+                    in silicon, fab time, and lost revenue.
+                </p>
+
+                <cite class="physics-wall-cite">
+                    Sources: ASML lithography field-size specifications;
+                    industry 300 mm wafer cost estimates (2019–2023).
+                </cite>
+
+                <p class="physics-wall-bridge">
+                    These constraints drove AMD to abandon the monolithic
+                    approach entirely — the solution was to stop building
+                    one large die and start composing many small ones.
+                </p>
             </article>
 
             <!-- RIGHT: MONOLITHIC FAILURE VISUAL -->
             <figure class="physics-wall-monitor">
                 <div class="physics-wall-monitor-header">
                     <span class="physics-wall-monitor-code">
-                        SIN: MONOLITHIC_FAILURE
+                        SIM: MONOLITHIC_FAILURE
                     </span>
                     <span class="physics-wall-monitor-status">
                         STATUS: CRITICAL
@@ -46,6 +74,7 @@
                 </div>
 
                 <div class="physics-wall-die">
+                    <span class="physics-wall-reticle-label">800mm² RETICLE LIMIT</span>
                     <span class="physics-wall-defect-dot"></span>
                     <span class="physics-wall-defect-text">DEFECT</span>
                 </div>
