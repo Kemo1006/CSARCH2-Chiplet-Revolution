@@ -7,9 +7,88 @@
 4. Salvador, Miguel 
 5. Tanchiao, Manuel
 
+## Live Deployment
+**https://Kemo1006.github.io/CSARCH2-Chiplet-Revolution/chip-rev**
+
+---
+
+## Final Milestone Update
+### Final Website Status
+The exhibit is complete and deployed via GitHub Pages. All five sections are implemented, styled, and functional:
+
+| Section | Component | Status |
+|---|---|---|
+| Hero / Intro | `Intro.astro` | ✅ Complete — full-page background video, matrix overlay, hero telemetry stats |
+| The Physics Wall | `PhysicsWall.astro` | ✅ Complete — reticle-limit visual, ASML lens explanation, wafer cost breakdown, citation |
+| Before vs. After | `BeforeAfter.astro` | ✅ Complete — monolithic vs. chiplet comparison, cost callout, yield formula, AMD timeline |
+| Try It Yourself: The Simulator | `ChipSim.jsx` | ✅ Complete — interactive sliders, live yield/cost calculation, reticle-limit warning, grade legend |
+| Metrics Dashboard | `Metrics.astro` | ✅ Complete — sourced KPI stats, chiplet package diagram, citation |
+
+### Final Development Summary — Technical & Creative Discussions
+**Layering & background video bug (resolved):** An early implementation placed the full-page background video (`matrix-bg.mp4`) with a negative `z-index`, which caused it to render behind the page's own background instead of behind the content as intended. The root cause was eventually traced to a **duplicate, conflicting CSS rule** defined in two different stylesheets (`overhaul.css` and `intro.css`); the file that loaded last silently overrode the working fix. Resolved by consolidating the rule into a single source of truth using non-negative stacking (`z-index: 0`) plus a radial vignette overlay for readability, with additional mobile-specific opacity reduction and `prefers-reduced-motion` support added along the way.
+ 
+**Physics Wall visual redesign:** Iterated from a single dashed die box to a two-layer visual, an outer dashed box representing the 800mm² reticle limit, with the actual die rendered solidly inside it. This made the "die pressed against the physical ceiling" concept immediately legible without needing to read the surrounding text first.
+ 
+**Simulator interactivity:** Extended the initial static mockup into a fully working React component, live sliders for core count and defect density, a dynamically recalculated yield/cost/grade readout, a wafer visualization that regenerates defect positions on architecture toggle, and a reticle-limit warning banner that fires when a monolithic configuration physically cannot be manufactured (die area > 800mm²).
+ 
+**Content depth:** In response to earlier feedback that the site felt "too raw," each section was expanded with additional paragraphs, a real AMD product timeline (Zen 1 EPYC 2017 → MI400 APU 2025), cost math, and a formula breakdown
+
+---
+
+### Final Aha Moments or Things Learned
+**Colcol, Massimo:**
+> During the final review, I noticed a few small typographical errors that I had previously overlooked, things like inconsistent spacing and missing punctuation that affected the overall polish of the page. I also added a transition text to help guide visitors more smoothly from one section to the next, which made the overall flow of the exhibit feel much more cohesive. It's amazing how even the smallest details like these can make a big difference in how professional and intentional the final product feels.
+
+**Dicreto, Eirnan:**
+> We had to work around the locked template files, so each of us edited our own CSS files to better implement our planned design instead of modifying the global styles directly. We also discussed how we could improve our storytelling on the webpage, making sure the narrative flow from the problem to the solution was clearer and more engaging for visitors.
+
+**Ong, Kyle:**
+> One of my biggest aha moments was debugging the background video issue. At first, I was so sure the problem was in the component file itself, so I spent way too much time tweaking the code there without any luck. It turned out the fix wasn't even in that file; it was some other CSS loading after it and quietly overriding everything. That moment really taught me to step back and check other files first before fixating on just one, especially when dealing with CSS cascading issues. It was frustrating at the time, but definitely a lesson I won't forget.
+
+**Salvador, Miguel:**
+> Testing the website from a user's perspective helped us identify areas that could be improved. We caught things we hadn't noticed before, like awkward spacing, unclear labels, and moments where the interface just didn't feel intuitive. Even small UI tweaks, like adjusting button placement and refining the visual hierarchy, ended up making a huge difference in how smooth and polished the overall experience felt. It reminded us that sometimes the smallest changes have the biggest impact on usability.
+
+**Tanchiao, Manuel:**
+> Looking at AMD's broader impact beyond just our exhibit, I also started thinking about how AMD can still serve as a real alternative to Nvidia's chips, especially in this age of AI. While Nvidia leads in AI training, AMD's MI300 series and its chiplet-based designs show they can compete in AI workloads, potentially offering better cost-effectiveness and flexibility. It's interesting to see how the chiplet revolution we studied isn't just about solving past problems; it's also shaping the future of AI hardware.d
+
+---
+
+### Final Challenges Faced
+**Colcol, Massimo:**
+> During our final pass through the webpage, we caught a few minor errors that had slipped through, things like small alignment issues and inconsistent spacing that were easy to miss during development. We also adjusted some visual elements, making certain buttons and graphics slightly larger to ensure they were clearly visible and easy to interact with on both mobile and desktop screens. These small fixes may seem minor, but they ended up making the exhibit feel much more polished and user-friendly across all devices.
+
+**Dicreto, Eirnan:**
+> We ran into a few technical constraints with the design, especially when trying to add a video background to one of the sections. At first, we thought the issue was in the component file itself, but after some thorough debugging, we realized the problem was coming from a completely different CSS file that was loading after ours and quietly overriding the fix. It took a while to trace, but we eventually got it working,  and it ended up being a good lesson in how CSS specificity and load order can cause unexpected behavior.
+
+**Ong, Kyle:**
+> The challenges I encountered were still mostly CSS-related. After adding the new overhaul.css to improve the design, I had to make sure before.css still played nicely with it without breaking anything. Some styles were getting overridden, and I had to carefully adjust specificity and class scoping to keep both files working together. It was tricky, but it forced me to better understand how CSS actually works in practice.
+
+**Salvador, Miguel:**
+> One of the biggest challenges I faced was managing multiple project deadlines while still implementing new features. I had to carefully balance my school requirements with the project's timeline, which meant juggling other coursework alongside our exhibit development. I also had to complete several last-minute revisions before the submission deadline, making sure everything was polished and ready despite the time constraints.
+
+**Tanchiao, Manuel:**
+> Managing this project alongside my other academic and personal responsibilities was definitely challenging. Balancing group meetings, coding work, and last-minute revisions while keeping up with my other classes required a lot of discipline and prioritization. Despite the stress, having a clear internal deadline and a supportive group helped me stay accountable and push through to the finish line.
+
+---
+
+### Disclosure on Use of AI / LLM (Final)
+This expands on the mid-milestone disclosure with additional AI use cases identified during final development.
+
+This project was developed with the assistance of AI tools (ChatGPT) in the following ways:
+
+- **Frontend Development & Styling**: Used to help explain CSS-related problems and troubleshoot styling issues. Assisted in determining which variables were changed in the CSS and why. Also used to troubleshoot HTML, CSS, and JavaScript issues encountered during development.
+
+- **UI/UX Improvements**: Used to suggest improvements for the website's layout and overall user experience, including recommendations on spacing, visual hierarchy, and mobile responsiveness. Also used to suggest visual improvements for the Metrics section.
+
+- **Content & Research**: Used to help find relevant information and sources to support the content of the exhibit, as well as to assist in refining explanations and improving the clarity of technical concepts.
+
+- **Interactive Element Logic**: Used to verify the functionality and accuracy of the interactive element (ChipSim). Also used to troubleshoot JavaScript logic and ensure calculations (yield, cost, etc.) were correct.
+
+---
+
 ## Mid-Milestone Development Update
-### Deployment Link
-**https://csarch2-virtual-exhibit-ten.vercel.app/**
+### Deployment Link (superseded — see Live Deployment link at top)
+~~https://csarch2-virtual-exhibit-ten.vercel.app/~~ *(migrated to GitHub Pages for final submission per instructor requirement)*
 
 ---
 
@@ -61,13 +140,7 @@
 
 ---
 
-#### Things To Be Done for Final Submission
-- [ ] Complete remaining component content (written exhibit text)
-- [ ] Mobile responsiveness testing and cleaning of CSS
-
----
-
-#### Disclosure on Use of AI / LLM
+#### Disclosure on Use of AI / LLM (Mid-Milestone)
 This project was developed with the assistance of AI tools (ChatGPT) in the following ways:
 
 - **Frontend Development:** Used as an assistive tool during the development of the frontend components — generating and refining HTML/CSS layouts, React/Astro component structures, styling suggestions, and UI improvements.
@@ -79,6 +152,7 @@ This project was developed with the assistance of AI tools (ChatGPT) in the foll
 - **Interactive Element Logic:** Assisted in the creation of certain elements or designs that were difficult to implement in code. Also used to thoroughly explain the theory behind chiplets and help with the backend math of the interactive element (yield calculations, cost comparisons, etc.).
 
 All content and code have been reviewed, verified, and adapted by the group members.
+
 ---
 
 ## REVISIONS
@@ -112,6 +186,18 @@ This is a classic **"problem-solving story" for Section S03** because AMD faced 
 4. Broekhuijsen, N. (2021). *AMD Patents Chiplet Design To Build Colossal GPUs*. Tom's Hardware. https://www.tomshardware.com/news/amd-gpu-chiplet-patent
 
 5. OC3D. (2018). *AMD Reveals Transformative "Chiplet" Design for Zen 2 EPYC Processors*. Overclock3D. https://overclock3d.net/news/cpu_mainboard/amd-reveals-transformative-chiplet-design-for-zen-2-epyc-processors/
+
+6. AMD. (n.d.). *AMD "Zen" Core Architecture*. https://www.amd.com/en/technologies/zen-core.html
+
+7. AMD. (n.d.). *AMD EPYC™ 7002 Series Processors*. https://www.amd.com/en/products/processors/server/epyc/7002-series.html
+
+8. Advanced Micro Devices, Inc. (2019, August 7). *2nd Gen AMD EPYC™ Processors Set New Standard for the Modern Datacenter with Record-Breaking Performance and Significant TCO Savings*. https://ir.amd.com/news-events/press-releases/detail/904/2nd-gen-amd-epyc-processors-set-new-standard-for-the-modern-datacenter-with-record-breaking-performance-and-significant-tco-savings
+
+9. Advanced Micro Devices, Inc. (2017, May 16). *AMD Raises Expectations for Server Performance, Unveils EPYC Processor Brand for the Datacenter*. https://ir.amd.com/news-events/press-releases/detail/766/amd-raises-expectations-for-server-performance-unveils-epyc-processor-brand-for-the-datacenter
+
+10. NASA HECC. (n.d.). *AMD Rome Processors – HECC Knowledge Base*. https://www.nas.nasa.gov/hecc/support/kb/entry/658
+
+11. Wikimedia Commons. (2019, November 23). *File:AMD EPYC Rome 12nm IO die shot close-up 1.jpg*. https://commons.wikimedia.org/wiki/File:AMD_EPYC_Rome_12nm_IO_die_shot_close-up_1.jpg
 
 ---
 
