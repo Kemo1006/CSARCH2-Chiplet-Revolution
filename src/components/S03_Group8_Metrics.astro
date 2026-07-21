@@ -67,10 +67,22 @@ const dieBlocks = [
                 skyrocketed. The silicon didn't stop; it just learned how to
                 work in teams.
             </p>
+
+            <div class="revolution-note">
+                <span class="note-icon" aria-hidden="true">
+                    ⓘ
+                </span>
+                <span class="note-text">
+                    Real EPYC Rome packages use 8 compute chiplets (CCDs)
+                    around 1 central I/O die. This diagram is simplified to
+                    show the CCX-around-IOD layout pattern.
+                </span>
+            </div>
         </div>
 
         <div class="revolution-visual">
             <div class="die-package">
+                <span class="die-package-label">SoC Package</span>
                 {
                     dieBlocks.map((d) => (
                         <div class={`die-block die-block--${d.variant}`}>
@@ -78,6 +90,14 @@ const dieBlocks = [
                         </div>
                     ))
                 }
+                <div class="die-package-legend">
+                    <span class="legend-item">
+                        <span class="legend-dot ccx-dot" /> Compute (CCX)
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-dot io-dot" /> I/O Die (IOD)
+                    </span>
+                </div>
             </div>
         </div>
     </div>
