@@ -24,6 +24,7 @@
  *
  * ## Props
  *   - photos (Array) – Required. A list of photo objects (shape below).
+ *   - variant ("default" | "silicon") – Optional visual treatment.
  *
  * ## Photo object shape
  *   {
@@ -47,18 +48,22 @@
 
 import { useState, useEffect } from "react";
 
-export default function ImageGallery({ photos = [] }) {
+export default function ImageGallery({ photos = [], variant = "default" }) {
   // `current` is the index of the photo on screen. It starts at 0 (the first photo).
   // `setCurrent` is the only way to change it -- React re-renders whenever we call it.
   const [current, setCurrent] = useState(0);
 
   const total = photos.length;
+  const normalizedVariant = variant === "silicon" ? "silicon" : "default";
+  const s = normalizedVariant === "silicon" ? mergeStyles(styles, siliconStyles) : styles;
+  const theme = galleryThemes[normalizedVariant];
 
   // Move forward or backward. `dir` is +1 (next) or -1 (previous).
   // The modulo (% total) makes the gallery wrap around: going past the last photo
   // returns to the first, and going before the first jumps to the last.
   // Adding `total` before the % keeps the result positive when `dir` is -1.
   const go = (dir) => {
+    if (!total) return;
     setCurrent((prev) => (prev + dir + total) % total);
   };
 
@@ -69,6 +74,8 @@ export default function ImageGallery({ photos = [] }) {
   // useEffect runs after render. The function it returns is the "cleanup": React
   // calls it to remove the listener so we don't stack up duplicates or leak memory.
   useEffect(() => {
+    if (total < 2) return undefined;
+
     const handler = (e) => {
       if (e.key === "ArrowLeft") go(-1);
       if (e.key === "ArrowRight") go(1);
@@ -80,29 +87,29 @@ export default function ImageGallery({ photos = [] }) {
   // Guard clause: if no photos were passed in, show a friendly message instead
   // of crashing when we try to read photos[current] below.
   if (!total) {
-    return <div style={styles.empty}>Error: No photos included</div>;
+    return <div style={s.empty}>Error: No photos included</div>;
   }
 
   // The photo currently being shown.
   const photo = photos[current];
 
   return (
-    <div style={styles.root}>
+    <div style={s.root} className={`image-gallery image-gallery--${normalizedVariant}`}>
       {/* Stage: the framed area that holds the sliding images */}
-      <div style={styles.stage}>
+      <div style={s.stage}>
         {/* All photos sit in one horizontal strip. We slide the whole strip
             sideways with translateX so only the "current" photo is visible.
             Moving by `current * 100`% shifts it one full image width per step. */}
         <div
           style={{
-            ...styles.strip,
+            ...s.strip,
             transform: `translateX(-${current * 100}%)`,
           }}
         >
           {/* .map() turns each photo object into a slide. The `key` prop (p.id)
               helps React tell the slides apart efficiently. */}
           {photos.map((p) => (
-            <div key={p.id} style={styles.slide}>
+            <div key={p.id} style={s.slide}>
               {/* If the photo has a url, wrap the image in a link; otherwise show
                   the image on its own. This is a ternary: condition ? a : b */}
               {p.url ? (
@@ -110,13 +117,13 @@ export default function ImageGallery({ photos = [] }) {
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={styles.imgLink}
-                  aria-label={`Visit the ${p.title} website`}
+                  style={s.imgLink}
+                  aria-label={`Open source page for ${p.title}`}
                 >
-                  <img src={p.img} alt={p.title} style={styles.img} loading="lazy" />
+                  <img src={p.img} alt={p.title} style={s.img} loading="lazy" />
                 </a>
               ) : (
-                <img src={p.img} alt={p.title} style={styles.img} loading="lazy" />
+                <img src={p.img} alt={p.title} style={s.img} loading="lazy" />
               )}
             </div>
           ))}
@@ -125,14 +132,14 @@ export default function ImageGallery({ photos = [] }) {
         {/* Previous / next buttons. onClick calls go() with the direction.
             aria-label gives screen readers a description of each button. */}
         <button
-          style={{ ...styles.navBtn, left: 12 }}
+          style={{ ...s.navBtn, left: 12 }}
           onClick={() => go(-1)}
           aria-label="Previous photo"
         >
           ‹
         </button>
         <button
-          style={{ ...styles.navBtn, right: 12 }}
+          style={{ ...s.navBtn, right: 12 }}
           onClick={() => go(1)}
           aria-label="Next photo"
         >
@@ -140,20 +147,20 @@ export default function ImageGallery({ photos = [] }) {
         </button>
 
         {/* Counter, e.g. "2 / 5". current is 0-based, so we add 1 for display. */}
-        <span style={styles.counter}>
+        <span style={s.counter}>
           {current + 1} / {total}
         </span>
       </div>
 
       {/* Caption below the image. Some fields are optional, so tagline only
           renders when it exists (the && short-circuit pattern). */}
-      <div style={styles.caption}>
+      <div style={s.caption}>
         <div>
-          <div style={styles.captionTitle}>{photo.title}</div>
+          <div style={s.captionTitle}>{photo.title}</div>
           {photo.tagline && (
-            <div style={styles.captionTagline}>{photo.tagline}</div>
+            <div style={s.captionTagline}>{photo.tagline}</div>
           )}
-          <div style={styles.captionMeta}>
+          <div style={s.captionMeta}>
             {photo.author} / {photo.year}
           </div>
         </div>
@@ -161,15 +168,15 @@ export default function ImageGallery({ photos = [] }) {
 
       {/* Dot indicators: one dot per photo. The active dot is darker and larger.
           We compare each index `i` against `current` to decide its style. */}
-      <div style={styles.dots}>
+      <div style={s.dots}>
         {photos.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             aria-label={`Go to photo ${i + 1}`}
             style={{
-              ...styles.dot,
-              background: i === current ? "#111" : "#ccc",
+              ...s.dot,
+              background: i === current ? theme.activeDot : theme.inactiveDot,
               transform: i === current ? "scale(1.4)" : "scale(1)",
             }}
           />
@@ -178,6 +185,25 @@ export default function ImageGallery({ photos = [] }) {
     </div>
   );
 }
+
+const mergeStyles = (base, override) =>
+  Object.fromEntries(
+    Object.entries(base).map(([key, value]) => [
+      key,
+      { ...value, ...(override[key] || {}) },
+    ])
+  );
+
+const galleryThemes = {
+  default: {
+    activeDot: "#111",
+    inactiveDot: "#ccc",
+  },
+  silicon: {
+    activeDot: "#39ff14",
+    inactiveDot: "rgba(185, 204, 175, 0.35)",
+  },
+};
 
 // -- Styles -----------------------------------------------
 // Inline styles are plain objects: keys are camelCased CSS properties, values are
@@ -293,5 +319,60 @@ const styles = {
     padding: "3rem",
     color: "#888",
     fontSize: 14,
+  },
+};
+
+const siliconStyles = {
+  root: {
+    gap: 14,
+    maxWidth: 980,
+    color: "#b9ccaf",
+  },
+  stage: {
+    borderRadius: 6,
+    background: "#050806",
+    border: "1px solid rgba(57,255,20,0.24)",
+    boxShadow:
+      "0 0 28px rgba(57,255,20,0.09), inset 0 0 40px rgba(57,255,20,0.035)",
+  },
+  img: {
+    objectFit: "cover",
+    filter: "saturate(0.95) contrast(1.08)",
+  },
+  navBtn: {
+    border: "1px solid rgba(57,255,20,0.32)",
+    background: "rgba(5, 10, 7, 0.78)",
+    color: "#39ff14",
+    boxShadow: "0 0 16px rgba(57,255,20,0.16)",
+  },
+  counter: {
+    color: "#dfffd6",
+    background: "rgba(5, 10, 7, 0.78)",
+    border: "1px solid rgba(57,255,20,0.25)",
+  },
+  caption: {
+    padding: "0 2px",
+  },
+  captionTitle: {
+    color: "#eaffde",
+    fontFamily: '"Courier New", Courier, monospace',
+    letterSpacing: "0",
+  },
+  captionTagline: {
+    color: "#b9ccaf",
+  },
+  captionMeta: {
+    color: "rgba(185, 204, 175, 0.62)",
+    fontFamily: '"Courier New", Courier, monospace',
+    letterSpacing: "0",
+    textTransform: "uppercase",
+  },
+  dot: {
+    border: "1px solid rgba(57,255,20,0.25)",
+  },
+  empty: {
+    color: "#b9ccaf",
+    background: "rgba(5, 8, 6, 0.8)",
+    border: "1px solid rgba(57,255,20,0.2)",
   },
 };
